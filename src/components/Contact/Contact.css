@@ -1,0 +1,32 @@
+/* ===== CONTACT SECTION ===== */
+.contact__wrapper {
+  max-width: 680px;
+}
+
+.contact__content {
+  margin-top: 24px;
+}
+
+.contact__label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.contact__email {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+  transition: text-decoration-color 0.15s ease, opacity 0.15s ease;
+  word-break: break-all;
+}
+
+.contact__email:hover {
+  text-decoration-color: #ffffff;
+  opacity: 0.9;
+}

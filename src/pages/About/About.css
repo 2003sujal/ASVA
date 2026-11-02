@@ -1,0 +1,44 @@
+.about-content {
+  padding: 48px 0 80px;
+}
+
+.about-section {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.about-section:last-child {
+  border-bottom: none;
+}
+
+.about-section__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.about-section__text {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 640px;
+  margin-bottom: 12px;
+}
+
+.about-section__text:last-child {
+  margin-bottom: 0;
+}
+
+.about-email {
+  font-weight: 500;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1px;
+  transition: opacity 0.15s ease;
+}
+
+.about-email:hover {
+  opacity: 0.7;
+}
+

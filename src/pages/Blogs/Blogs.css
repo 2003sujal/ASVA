@@ -1,0 +1,28 @@
+.blogs-content {
+  padding: 48px 0 80px;
+}
+
+.blogs-content__text {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 640px;
+  margin-bottom: 16px;
+}
+
+.blogs-content__text:last-child {
+  margin-bottom: 0;
+}
+
+.blogs-email {
+  font-weight: 500;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1px;
+  transition: opacity 0.15s ease;
+}
+
+.blogs-email:hover {
+  opacity: 0.7;
+}
+

@@ -1,0 +1,41 @@
+/* ===== HERO SECTION ===== */
+.hero {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  padding-top: var(--nav-height);
+  padding-bottom: 64px;
+}
+
+.hero__content {
+  max-width: 680px;
+}
+
+.hero__title {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.hero__description {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.hero__action {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--nav-height) + 40px);
+    padding-bottom: 72px;
+  }
+}

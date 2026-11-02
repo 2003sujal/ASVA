@@ -1,0 +1,16 @@
+/* ===== ABOUT SECTION ===== */
+.about__wrapper {
+  max-width: 760px;
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about__paragraph {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
