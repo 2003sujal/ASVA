@@ -12,14 +12,28 @@ function About() {
         </div>
 
         <div className="about-content">
-          <div className="about-section">
-            <h2 className="about-section__title">Our Company</h2>
-            <p className="about-section__text">
-              ASVA Innovation Lab Pvt. Ltd. is a modern technology company established to deliver dependable software, digital products, and innovative technology solutions. We bridge the gap between emerging technology and real-world business needs.
-            </p>
-            <p className="about-section__text">
-              Our lab focuses on research, design, and practical implementation — providing organizations with scalable and future-ready digital foundations. As we continue to expand our operations, our commitment remains grounded in engineering rigor, transparency, and collaboration.
-            </p>
+          <div className="about-feature">
+            <div className="about-section about-section--lead">
+              <h2 className="about-section__title">Our Company</h2>
+              <p className="about-section__text">
+                ASVA Innovation Lab Pvt. Ltd. is a modern technology company established to deliver dependable software, digital products, and innovative technology solutions. We bridge the gap between emerging technology and real-world business needs.
+              </p>
+              <p className="about-section__text">
+                Our lab focuses on research, design, and practical implementation — providing organizations with scalable and future-ready digital foundations. As we continue to expand our operations, our commitment remains grounded in engineering rigor, transparency, and collaboration.
+              </p>
+            </div>
+
+            <div className="about-feature__media">
+              <div className="media">
+                <img
+                  src="/images/about-team.jpg"
+                  alt="Software engineers collaborating around a workstation"
+                  width="1200"
+                  height="800"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
 
           <div className="about-section">
@@ -43,4 +57,3 @@ function About() {
 }
 
 export default About
-

@@ -12,11 +12,29 @@ const NAV_LINKS = [
   { label: 'Blogs', to: '/blogs' },
 ]
 
+function SunIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+    </svg>
+  )
+}
+
+function MoonIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+    </svg>
+  )
+}
+
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const { theme, toggleTheme } = useTheme()
   const location = useLocation()
+  const nextTheme = theme === 'dark' ? 'light' : 'dark'
 
   useEffect(() => {
     setIsOpen(false)
@@ -24,20 +42,23 @@ function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+      setIsScrolled(window.scrollY > 8)
     }
+    handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Lock page scroll while the mobile menu is open; close it with Escape
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
+    document.body.style.overflow = isOpen ? 'hidden' : ''
+    const handleKey = (e) => {
+      if (e.key === 'Escape') setIsOpen(false)
     }
+    if (isOpen) document.addEventListener('keydown', handleKey)
     return () => {
       document.body.style.overflow = ''
+      document.removeEventListener('keydown', handleKey)
     }
   }, [isOpen])
 
@@ -50,9 +71,11 @@ function Navbar() {
       <div className="container navbar__inner">
         <Link to="/" className="navbar__logo" aria-label="ASVA - Go to homepage">
           <img
-            src="/asva-logo.jpeg"
+            src="/asva-logo.png"
             alt="ASVA Innovation Lab"
             className="navbar__logo-img"
+            width="136"
+            height="30"
           />
         </Link>
 
@@ -61,6 +84,7 @@ function Navbar() {
             <li key={link.label}>
               <NavLink
                 to={link.to}
+                end={link.to === '/'}
                 className={({ isActive }) =>
                   `navbar__link ${isActive ? 'navbar__link--active' : ''}`
                 }
@@ -75,10 +99,10 @@ function Navbar() {
           <button
             className="navbar__theme-toggle"
             onClick={toggleTheme}
-            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            aria-label={`Switch to ${nextTheme} mode`}
+            title={`Switch to ${nextTheme} mode`}
           >
-            {theme === 'dark' ? '☀️' : '🌙'}
+            {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
           </button>
 
           <button
@@ -86,6 +110,7 @@ function Navbar() {
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
             <span className="navbar__hamburger-line" />
             <span className="navbar__hamburger-line" />
@@ -94,12 +119,13 @@ function Navbar() {
         </div>
 
         {isOpen && (
-          <div className="navbar__mobile" role="menu">
+          <div id="mobile-menu" className="navbar__mobile">
             <ul className="navbar__mobile-links">
               {NAV_LINKS.map((link) => (
                 <li key={link.label}>
                   <NavLink
                     to={link.to}
+                    end={link.to === '/'}
                     className={({ isActive }) =>
                       `navbar__mobile-link ${isActive ? 'navbar__mobile-link--active' : ''}`
                     }
@@ -111,11 +137,12 @@ function Navbar() {
               ))}
             </ul>
             <button
-              className="navbar__theme-toggle navbar__theme-toggle--mobile"
+              className="navbar__theme-toggle--mobile"
               onClick={toggleTheme}
-              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+              aria-label={`Switch to ${nextTheme} mode`}
             >
-              {theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode'}
+              {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+              <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
             </button>
           </div>
         )}

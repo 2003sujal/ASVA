@@ -12,11 +12,25 @@ function Careers() {
         </div>
 
         <div className="careers-content">
-          <div className="careers-section">
-            <h2 className="careers-section__title">Working at ASVA</h2>
-            <p className="careers-section__text">
-              We are always looking for talented individuals who share our passion for technology and innovation. At ASVA Innovation Lab, you will work on meaningful projects in a collaborative and growth-oriented environment.
-            </p>
+          <div className="careers-feature">
+            <div className="careers-section careers-section--lead">
+              <h2 className="careers-section__title">Working at ASVA</h2>
+              <p className="careers-section__text">
+                We are always looking for talented individuals who share our passion for technology and innovation. At ASVA Innovation Lab, you will work on meaningful projects in a collaborative and growth-oriented environment.
+              </p>
+            </div>
+
+            <div className="careers-feature__media">
+              <div className="media">
+                <img
+                  src="/images/careers-team.jpg"
+                  alt="Team members collaborating with laptops around a shared table"
+                  width="1200"
+                  height="800"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
 
           <div className="careers-section">
@@ -40,4 +54,3 @@ function Careers() {
 }
 
 export default Careers
-

@@ -12,13 +12,15 @@ function Blogs() {
         </div>
 
         <div className="blogs-content">
-          <p className="blogs-content__text">
-            Blog posts will be published here. Stay tuned for updates on technology, innovation, and our work at ASVA Innovation Lab.
-          </p>
-          <p className="blogs-content__text">
-            For inquiries, reach out at{' '}
-            <a href="mailto:info@asva.com.np" className="blogs-email">info@asva.com.np</a>
-          </p>
+          <div className="blogs-card">
+            <p className="blogs-content__text">
+              Blog posts will be published here. Stay tuned for updates on technology, innovation, and our work at ASVA Innovation Lab.
+            </p>
+            <p className="blogs-content__text">
+              For inquiries, reach out at{' '}
+              <a href="mailto:info@asva.com.np" className="blogs-email">info@asva.com.np</a>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -26,4 +28,3 @@ function Blogs() {
 }
 
 export default Blogs
-
